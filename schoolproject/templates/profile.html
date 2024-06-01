@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+      
+            margin: 0;
+        }
+        
+        .container {
+            margin: auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .username {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .profile-content p {
+            color: #666;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        
+        .profile-link {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+        
+        .profile-link:hover {
+            color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="/{{user.profile_photo}}" alt="Profile Photo" class="profile-photo">
+            <h2 class="username">{{user.username}}</h2>
+        </div>
+        <div class="profile-content">
+            <p>Here is my basic information</p>
+            <a href="{% url "basicinfoSeeker" %}" class="profile-link">Basic Information</a>
+            <p>Aliquam erat volutpat. Donec fringilla nunc non massa tincidunt, sed tempor ligula consequat. Proin id sollicitudin nisi. Fusce bibendum dolor sit amet velit tincidunt, ac scelerisque tortor posuere.</p>
+            <a href="#" class="profile-link">Here another link</a>
+            <p>Sed sed orci at lorem varius interdum. Morbi volutpat vehicula ante, ut interdum magna malesuada sed. Aenean in diam at purus auctor facilisis.</p>
+            <a href="#" class="profile-link">Here another link</a>
+            <p>Curabitur venenatis, eros non viverra laoreet, odio nunc faucibus sapien, ac fermentum magna purus nec risus. Integer ut arcu non sapien lacinia auctor.</p>
+            <a href="#" class="profile-link">And another link</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock content %}

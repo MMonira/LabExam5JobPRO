@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+        
+        .navbar-left a {
+            margin-right: 20px;
+        }
+        
+        .navbar-right a {
+            margin-left: 20px;
+        }
+        
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            {% if user.user_type == 'recruiter' %}
+            
+           
+            <a href="{% url 'addjob' %}">Add Job</a>
+            {% elif user.user_type == 'seeker' %}
+            <a href="{% url 'appliedjob' %}">Applied Job</a>
+            {% endif %}
+            <a href="{% url 'joblist' %}">Joblist</a>
+        </div>
+        <div class="navbar-right">
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="{% url 'logup' %}">Logout</a>
+        </div>
+    </nav>
+    {% block content %}
+    
+    
+    {% endblock content %}
+</body>
+</html>
